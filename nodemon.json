@@ -1,0 +1,6 @@
+{
+    "env" : {
+        "JWT_KEY": "1504134bca8795e25b8d8e649ca465707bfc18c4414a2ff8a46c7a5a63359260",
+        "URL_API" : "https://api-pco.herokuapp.com/"
+    }
+}
