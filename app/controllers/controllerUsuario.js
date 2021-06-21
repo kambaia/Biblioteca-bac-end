@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const authConfig = require('../../config/auth.json')
-
 const Usuario = require("../models/Usuario");
 module.exports = {
     Usuario(req, res) {
@@ -11,14 +10,13 @@ module.exports = {
         })
     },
     async CadastrarUsuario(req, res) {
-        const { email } = req.body;
+        const { email, telefone, numero_m } = req.body;
         const dados = req.body;
         const dt = new Date();
-        console.log(dados);
-        
+        dados.autenticado= 'leitor'
         const dataHoje = dt.toLocaleDateString();
         try {
-            let usuario = await Usuario.findOne({ email: email });
+            let usuario = await Usuario.findOne({ email: email, telefone:telefone, numero_m:numero_m });
             if (!usuario) {
                 usuario = await Usuario.create(dados);
                 usuario.senha = undefined;
@@ -27,7 +25,6 @@ module.exports = {
                 })
                 return res.status(201).json({ usuario, token });
             } else {
-                console.log(usuario)
                 return res.status(400).json({ error: "Usuário já está cadastrado" })
             }
         } catch (error) {

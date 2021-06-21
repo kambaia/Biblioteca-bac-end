@@ -13,7 +13,7 @@ const { use } = require('./app/router');
 /*******************middware***************** */
 let db = require('./config/database')
 require('dotenv').config();
-db(process.env.MONGO_SERVER_KEY);
+db(process.env.MONGO_local_KEY);
 
 //mongoose.connect('mongodb://localhost/biblioteca', { useNewUrlParser: true, useUnifiedTopology: true });
 /*var db = mongoose.connection;

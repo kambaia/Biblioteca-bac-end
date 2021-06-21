@@ -43,6 +43,11 @@ router.post('/api/autor', upload1.single('foto_autor'), controllerAutor.Cadastra
 router.get('/api/autor', controllerAutor.listarTodos);
 
 
+//**************favoritar */
+router.post('/api/favorito/:id', controllerLivros.Favoritar);
+router.get('/api/favorito/:id', controllerLivros.Favoritos);
+
+
 
 /*************************Todas rotas Extras**************** */
 module.exports = router;

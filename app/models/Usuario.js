@@ -10,21 +10,21 @@ const userSchema = mongoose.Schema({
     },
     telefone: {
         type: String,
-        required: true,
-        unique: true,
         min: 0,
         max:9
     },
     email: {
         type:String,
         trim:true,
-        unique: 1 
     },
     senha: {
         type: String,
         select: false,
         minglength: 8,
         required: true
+    },
+    numero_m: {
+        type: String  
     },
     autenticado:{
         type: String
