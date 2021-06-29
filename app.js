@@ -47,6 +47,6 @@ app.use('/files', express.static(path.resolve(__dirname, 'uploads')));
 app.use('/doc', express.static(path.resolve(__dirname, 'uploads')));
 app.use(router);
 
-app.listen(80, () => {
+app.listen(5000, () => {
     console.log("Servidor rodando")
 })

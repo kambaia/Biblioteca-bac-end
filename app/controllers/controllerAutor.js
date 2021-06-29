@@ -16,7 +16,6 @@ module.exports = {
     async listarUm(req, res) {
         try {
             const id = req.params.id;
-            console.log(id)
             const resultAutor = await Autor.create(autor);
             if (resultAutor) { // obj foi encontrado
                res.send(obj) // HTTP 200 implícito
@@ -48,7 +47,7 @@ module.exports = {
     async atualizarLivro(req, res) {
         try {
             const id = req.params.id;
-            console.log(id);
+          
             const obj = await Autor.findByIdAndUpdate(id, req.body)
             if (obj) { // obj encontrado e atualizado
                // HTTP 204: No content
@@ -68,7 +67,6 @@ module.exports = {
         try {
            const id = req.params.id;
            const obj = await Autor.findByIdAndDelete(id);
-           console.log(obj)
            if (obj) {
               res.status(204).end()
            }

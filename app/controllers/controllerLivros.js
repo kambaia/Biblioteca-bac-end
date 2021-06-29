@@ -24,9 +24,6 @@ module.exports = {
       const { id_usuario } = req.headers;
       livro.capa = filename;
       livro.usuario = id_usuario;
-      livro.recomedado = livro.recomedado.split(",").map((rec) => rec.trim());
-      console.log(livro);
-      console.log(req.file);
       const resultLivro = await Livro.create(livro);
       return res.json({
         livro: resultLivro,
@@ -84,7 +81,7 @@ module.exports = {
     const resultlivros = await Livro.find()
       .populate("categoria", "categoria")
       .populate("documento")
-      .populate("autor", "-_id ");
+      .populate("autor", "-_id ").sort({tema: -1});
     return res.json(resultlivros);
   },
 
