@@ -14,15 +14,6 @@ const { use } = require('./app/router');
 let db = require('./config/database')
 require('dotenv').config();
 db(process.env.MONGO_local_KEY);
-
-//mongoose.connect('mongodb://localhost/biblioteca', { useNewUrlParser: true, useUnifiedTopology: true });
-/*var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback() {
-    console.log("conexão feita com sucesso");
-});
-*/
-
 /* configurar o middleware body-parser */
 app.use(express.static(path.join(__dirname, 'public')));
 /* setar as variáveis 'view engine' e 'views' do express */
@@ -47,6 +38,6 @@ app.use('/files', express.static(path.resolve(__dirname, 'uploads')));
 app.use('/doc', express.static(path.resolve(__dirname, 'uploads')));
 app.use(router);
 
-app.listen(5000, () => {
+app.listen(8000, () => {
     console.log("Servidor rodando")
 })

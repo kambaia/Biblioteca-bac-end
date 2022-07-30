@@ -33,7 +33,7 @@ module.exports = {
         }
     },
    async listarTodos(req, res) {
-        const resultcategoria = await Categoria.find();
+        const resultcategoria = await Categoria.find({});
         return res.json(resultcategoria)
     },
     async atualizarLivro() {

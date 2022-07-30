@@ -19,7 +19,7 @@ const CollecaoLivro = mongoose.Schema(
       ref: "Categoria",
     },
     recomedado: [String],
-    tema: {
+    titulo: {
       type: String,
       required: true, // Atributo obrigatório
     },
@@ -39,7 +39,10 @@ const CollecaoLivro = mongoose.Schema(
     orientador: {
       type: String,
     },
-    Descricao: {
+    descricao: {
+      type: String,
+    },
+    publicidade:  {
       type: String,
     },
     favorito: {
@@ -48,15 +51,19 @@ const CollecaoLivro = mongoose.Schema(
     codigo_identificacao: {
       type: Number,
     },
+    
   },
+  { timestamps: true },
   {
     toJSON: {
       virtuals: true,
     },
+   
+
   }
 );
 CollecaoLivro.virtual("capa_ul").get(function () {
-  return `http://localhost/files/${this.capa}`;
+  return `http://localhost:8000/files/${this.capa}`;
 });
 
 const documentoSchema = mongoose.Schema(
@@ -72,7 +79,7 @@ const documentoSchema = mongoose.Schema(
   }
 );
 documentoSchema.virtual("documento_url").get(function () {
-  return `http://localhost/doc/${this.doc}`;
+  return `http://localhost:8000/doc/${this.doc}`;
 });
 /*
    Parâmetros de mongoose.model():
